@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  #golangの設定
+  app:
+    build: ./
+    container_name: goTest
+    tty: true
+    volumes:
+      - ../:/go/src/charts_server/src
+    working_dir: /go/src/charts_server/src/goTest/src
+    ports:
+      - "8080:8080"
+    command: go run main.go
+    environment:
+          - "GOPATH=/go/src/charts_server"
